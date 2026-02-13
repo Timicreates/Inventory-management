@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import { StackProvider, StackTheme } from "@stackframe/stack";
-import { stackClientApp } from "../stack/client";
 import { Josefin_Slab } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/theme";
+
+// Try this instead of /next/client
+import { authClient } from "@/lib/auth/client";
+import { NeonAuthUIProvider, UserButton } from "@neondatabase/auth/react";
 
 const josefinSlab = Josefin_Slab({
   variable: "--font-josefin-slab",
@@ -24,21 +26,19 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${josefinSlab.variable} antialiased`}>
-        <StackProvider app={stackClientApp}>
-          <StackTheme>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-            >
-              <div className="flex justify-end mr-4">
-                <ThemeToggle />
-              </div>
-              {children}
-            </ThemeProvider>
-          </StackTheme>
-        </StackProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="flex justify-end mr-4">
+            <ThemeToggle />
+          </div>
+          <NeonAuthUIProvider authClient={authClient}>
+            {children}
+          </NeonAuthUIProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

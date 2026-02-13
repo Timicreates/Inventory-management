@@ -22,7 +22,7 @@ const Page = () => {
 
           <div className="flex justify-center mt-6 p-4 gap-3">
             <Link
-              href={"/sign-in"}
+              href={"/auth/sign-in"}
               className="px-8 py-2 rounded border border-primary bg-background text-primary duration-300 cursor-pointer hover:bg-primary hover:text-primary-foreground"
             >
               Sign In

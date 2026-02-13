@@ -9,7 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@stackframe/stack": "^2.8.65",
+    "@neondatabase/auth": "^0.2.0-beta.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.563.0",
