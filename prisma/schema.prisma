@@ -6,12 +6,11 @@
 
 generator client {
   provider = "prisma-client"
-
+  output   = "../src/generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
-
 }
 
 model Product{
@@ -21,7 +20,7 @@ model Product{
   sku String? @unique
   price Decimal @db.Decimal(12,2)
   quantity Int @default(0)
-  losStockAt Int?
+  lowStockAt Int?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
