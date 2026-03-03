@@ -6,7 +6,7 @@ const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL });
 const prisma = new PrismaClient({ adapter });
 
 async function main() {
-  const demoUserId = "133767f0-768d-4338-a612-50c8dc722b84";
+  const demoUserId = "a3f92e26-adbe-4ae3-b156-dde5ad92aa28";
 
   // Create sample products
   await prisma.product.createMany({
